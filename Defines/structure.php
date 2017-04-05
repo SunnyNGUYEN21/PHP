@@ -11,4 +11,5 @@ define('PATH_FR', 'FR/');
 define('PATH_SCRIPT', 'Script/');
 define('PATH_LOG', 'Log/');
 define('PATH_IMAGES','images/');
+ define('PATH_BDD', 'BDD/');
 ?>

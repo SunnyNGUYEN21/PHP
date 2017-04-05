@@ -1,16 +1,24 @@
 <?php
 require_once('header.php');
-$diapositives = $diapos -> getImages();
+$diapositives = $diapos -> getImages($user);
 //print_r($diapositives);
-foreach($diapositives as $diapo){
+$nbDiapo = count($diapositives);
+$i = 1;
+echo '<div class="slideshow-container">';
+foreach($diapositives as $key => $diapo){
   ?>
-<div class="slideshow-container">
   <div class="mySlides fade">
-    <div class="numbertext">1 / <? echo strlen(diapo) ; ?></div>
-    <img src="<?php echo PATH_IMAGE.$diapo[0] ; ?>" style="width:100%">
-    <div class="text">Caption Text</div>
+    <div class="numbertext"><?php echo $i; ?>/ <?php echo $nbDiapo ; ?></div>
+    <img src="<?php echo PATH_IMAGE.$diapo['Nom_Fichier'] ; ?>" style="width:100%">
+    <div class="text">
+      <?php
+    $descrip = $diapos -> getDescription($diapo['ImageID']);
+    echo $descrip[0]['Description'];
+    ?>
+  </div>
   </div>
   <?php
+  $i++;
 }
 ?>
 
@@ -25,4 +33,10 @@ foreach($diapositives as $diapo){
   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 <?php
-require_once('footer.php');
+if(isset($page)){
+  if($page == "diaporama"){
+    require_once('footer.php');
+  }
+}
+?>
+<script src=<?php echo PATH_SCRIPT."diapo.js";?>></script>

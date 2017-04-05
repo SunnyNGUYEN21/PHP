@@ -1,8 +1,9 @@
 <?php
-define('MON_SITE','Page daccueil');
+define('MON_SITE','Page PHP G6S3');
 define('LOGO','logo.jpeg');
 $user="moi";
-$password='abbzsx15DOnzo';
-//echo crypt ($password, "abc");
+$password='$abbzsx15DOnzo';
+
+
 
 ?>

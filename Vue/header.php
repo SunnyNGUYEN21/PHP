@@ -35,7 +35,8 @@
 		</section>
 	</header>
 	<!-- Menu -->
-	<?php include(PATH_VUE.'menu.php'); ?>
+	<?php include(PATH_VUE.'menu.php'); 
+	 require_once(PATH_VUE.'alert.php');?>
 	<!--Vue-->
 	<section class="container">
 		<div class = "row">
