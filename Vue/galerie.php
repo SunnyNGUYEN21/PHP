@@ -24,23 +24,23 @@ require_once('diaporama.php'); ?>
 
       <?php
       foreach ($images as $key => $image) {
-        $descrip = $diapos -> getInfos($image['ImageID']);
+        $descrip = $diapos -> getInfos($image['id']);
         ?>
         <tr>
     <form action='index.php?page=modifier_Galerie' method='POST'>
       <td>
-        <img src="<?php echo PATH_IMAGE.$descrip[0]['Nom_Fichier']; ?>" width=10%>
-        <input type="hidden" id="id" name="id" value=<?php echo $image['ImageID']; ?>>
+        <img src="<?php echo PATH_IMAGES.$descrip[0]['nom_fichier']; ?>" width=10%>
+        <input type="hidden" id="id" name="id" value=<?php echo $image['id']; ?>>
       </td>
   <td class="form-group">
-    <input type="number" class="form-control" id="ordre" name="ordre" value="<?php echo $descrip[0]['Ordre']; ?>">
+    <input type="number" class="form-control" id="ordre" name="ordre" value="<?php echo $descrip[0]['ordre']; ?>">
   </td>
-  <td><?php echo $descrip[0]['Nom_Fichier']; ?></td>
+  <td><?php echo $descrip[0]['nom_fichier']; ?></td>
   <td class="form-group">
-    <input type="text" class="form-control" id="titre" name="titre" value="<?php echo $descrip[0]['Titre']; ?>">
+    <input type="text" class="form-control" id="titre" name="titre" value="<?php echo $descrip[0]['titre']; ?>">
   </td>
   <td class="form-group">
-      <textarea name="description" id="description" name="description"><?php echo isset($descrip[0]['Description']) ? $descrip[0]['Description'] : ""; ?></textarea>
+      <textarea name="description" id="description" name="description"><?php echo isset($descrip[0]['description']) ? $descrip[0]['description'] : ""; ?></textarea>
   </td>
   <td>
     <button type="submit" class="btn btn-default">Modifier</button>
@@ -48,8 +48,8 @@ require_once('diaporama.php'); ?>
 </form>
   <td>
   <form action='index.php?page=supprimer_Galerie' method='post'>
-    <input type="hidden" id="id" name="id" value=<?php echo $image['ImageID']; ?>>
-    <input type="hidden" id="nom" name="nom" value=<?php echo $descrip[0]['Nom_Fichier']; ?>>
+    <input type="hidden" id="id" name="id" value=<?php echo $image['id']; ?>>
+    <input type="hidden" id="nom" name="nom" value=<?php echo $descrip[0]['nom_fichier']; ?>>
     <button type="submit" name="suppr" class="btn btn-default">Supprimer</button>
   </td>
 
