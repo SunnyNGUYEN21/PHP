@@ -18,39 +18,36 @@ if(isset($_POST["submit"])) {
 }
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
+    header("location:index.php?page=galerie&message=image_deja_existante");
     $uploadOk = 0;
 }
  // Check file size
 if ($_FILES["fichier"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
+    header("location:index.php?page=galerie&message=taille_trop_grande");
     $uploadOk = 0;
  }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    header("location:index.php?page=galerie&message=mauvais_format");
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
+else {
     if (move_uploaded_file($_FILES["fichier"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fichier"]["name"]). " has been uploaded.";
         if($_FILES['fichier'] == NULL){
-          header("location:index.php?page=galerie");
+          $page = "galerie";
         }else{
-        if($diapos -> ajouter_Diapo($_FILES['fichier']['name'], $_SESSION['user']) != false){
-          header("location:index.php?page=galerie&message=image_ajoutée");
+        if($diapos -> Ajouter($_FILES['fichier']['name'], $_SESSION['user']) != false){
+          header("location:index.php?page=galerie&message=image_ajoutÃ©e");
         }else{
           header("location:index.php?page=galerie&message=image_deja_existante");
         }
         }
 
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        $page = "404";
     }
 }
 ?>

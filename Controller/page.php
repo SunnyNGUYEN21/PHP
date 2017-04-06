@@ -1,5 +1,5 @@
 <?php
-  require_once(PATH_VUE.'header.php');
-  
-  require_once(PATH_VUE.'footer.php');
+  require_once(PATH_VIEWS.'header.php');
+  echo NOM_SITE;
+  require_once(PATH_VIEWS.'footer.php');
 ?>

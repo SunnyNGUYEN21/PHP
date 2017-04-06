@@ -8,15 +8,13 @@
       </button>
 
     </div>
-
     <div class="collapse navbar-collapse" id="myNavbar">
-      <?php if(isset($_SESSION['logged'])){
-        if($_SESSION['logged'] == 1){?>
+      <?php if(isset($_SESSION['user'])) { ?>
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="index.php?page=diaporama" >Diaporama</a></li>
-        <li><a href="index.php?page=galerie">Galerie</a></li>
+        <li><a href="index.php?page=diaporama" >Diaporama d'images</a></li>
+        <li><a href="index.php?page=galerie">Galerie d'images</a></li>
       </ul>
-      <?php }} ?>
+      <?php } ?>
       <div class="nav navbar-nav navbar-right">
 <?php
 if(!isset($_SESSION['user'])){
@@ -34,7 +32,7 @@ if(!isset($_SESSION['user'])){
         </form>
         <?php }else{ ?>
           <div class="form-group<?php echo (isset($_GET['message']) && $_GET['message'] == "identifiant_invalide"?"has-error has-feedback":"");?>">
-            <h3>Bienvenue <?php echo $_SESSION['user']; ?></h3>
+            <h3>Connecté avec  <?php echo $_SESSION['user']; ?></h3>
           </div>
           <button class="btn btn-default"><a href="index.php?page=deconnection&url=<?php echo $page; ?>"><?php echo BOUTON_DECONNEXION;?></a></button>
           <?php } ?>

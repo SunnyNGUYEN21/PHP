@@ -1,18 +1,15 @@
 <?php
-//require_once(PATH_LIB.'SecureKey/SecureKey.php');
-
-
-
+/*
+* TP php
+*
+*
+*/
 class Bases{
 
   public static function isAlpha($string){
-    if(isset($string) && $string != '' && is_string($string) && !preg_match('/[\'^$£*µ_]/', $string)){
+    if(isset($string) && $string != '' && is_string($string) && !preg_match('/[\'^$Â£*Âµ_]/', $string)){
       return htmlspecialchars($string);
     }else return false;
-  }
-
-  public static function isNumber(){
-    
   }
   function clean($string) {
         $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
@@ -27,7 +24,7 @@ class Bases{
   }
 
   public static function isPassword($string){
-    if(isset($string) && !preg_match('/[\'^$£*µ_]/', $string)){
+    if(isset($string) && !preg_match('/[\'^$Â£*Âµ_]/', $string)){
       return true;
     }else{
       return false;

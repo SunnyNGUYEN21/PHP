@@ -9,11 +9,11 @@ foreach($diapositives as $key => $diapo){
   ?>
   <div class="mySlides fade">
     <div class="numbertext"><?php echo $i; ?>/ <?php echo $nbDiapo ; ?></div>
-    <img src="<?php echo PATH_IMAGES.$diapo['nom_fichier'] ; ?>" style="width:100%">
+    <img src="<?php echo PATH_IMAGE.$diapo['Nom_Fichier'] ; ?>" style="width:100%">
     <div class="text">
       <?php
-    $descrip = $diapos -> getDescription($diapo['id']);
-    echo $descrip[0]['description'];
+    $descrip = $diapos -> getDescription($diapo['ImageID']);
+    echo $descrip[0]['Description'];
     ?>
   </div>
   </div>
@@ -33,10 +33,6 @@ foreach($diapositives as $key => $diapo){
   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 <?php
-if(isset($page)){
-  if($page == "diaporama"){
-    require_once('footer.php');
-  }
-}
+require_once('footer.php');
 ?>
 <script src=<?php echo PATH_SCRIPT."diapo.js";?>></script>

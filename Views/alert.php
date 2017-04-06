@@ -46,6 +46,12 @@
       case "ordre_déjà_utilisé":
         alert('danger', MESSAGE_ORDRE_DEJA_UTILISE);
         break;
+      case "taille_trop_grande":
+        alert('danger', MESSAGE_TAILLE_TROP_GRANDE);
+        break;
+      case "mauvais_format":
+        alert('danger', MESSAGE_MAUVAIS_FORMAT);
+        break;
       default :
 
     }

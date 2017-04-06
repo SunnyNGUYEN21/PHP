@@ -1,5 +1,10 @@
 <?php
 
+echo "<pre>";
+print_r($_POST);
+print_r($_GET);
+print_r($_SESSION);
+echo "<pre>";
 foreach($_POST as $cle=>$val){
   $$cle=$val;
 }
